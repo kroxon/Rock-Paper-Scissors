@@ -13,11 +13,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let sign = prompt("Type \'rock\', \'paper\' or \'scissors\'")
-    return sign.toLowerCase()
-}
-
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == "paper") {
         if (computerChoice == "paper") {
@@ -65,15 +60,6 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 }
-
-// function playGame() {
-//     for (i = 0; i < 5; i++) {
-//         const humanSelection = getHumanChoice();
-//         const computerSelection = getComputerChoice();
-//         playRound(humanSelection, computerSelection);
-//     }
-//     console.log(((humanScore > computerScore)? "You won!": (humanScore < computerScore)? "You lost!" : "Draw!").concat(" " + humanScore + ":" + computerScore))
-// }
 
 let menu = document.querySelector('#menu');
 let plays = 0
