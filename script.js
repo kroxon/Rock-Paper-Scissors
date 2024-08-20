@@ -76,6 +76,7 @@ function playRound(humanChoice, computerChoice) {
 // }
 
 let menu = document.querySelector('#menu');
+let plays = 0
 
 menu.addEventListener('click', (event) => {
     let target = event.target;
@@ -92,8 +93,14 @@ menu.addEventListener('click', (event) => {
             playRound("rock", computerSelection);
             break;
     }
-
-    resultDiv.textContent = (((humanScore > computerScore) ? "You won!" : (humanScore < computerScore) ? "You lost!" : "Draw!").concat(" " + humanScore + ":" + computerScore));
+    if (plays++ < 4)
+        resultDiv.textContent = (humanScore + ":" + computerScore);
+    else {
+        resultDiv.textContent = (((humanScore > computerScore) ? "You won!" : (humanScore < computerScore) ? "You lost!" : "Draw!").concat(" " + humanScore + ":" + computerScore));
+        plays = 0;
+        humanScore = 0;
+        computerScore = 0;
+    }
 });
 
 const container = document.querySelector("body");
