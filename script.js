@@ -79,18 +79,21 @@ let menu = document.querySelector('#menu');
 
 menu.addEventListener('click', (event) => {
     let target = event.target;
+    const computerSelection = getComputerChoice();
 
-    switch(target.id) {
+    switch (target.id) {
         case 'scissors':
-            resultDiv.textContent = "Scissors";
+            playRound("scissors", computerSelection);
             break;
         case 'paper':
-            resultDiv.textContent = "Paper";
+            playRound("paper", computerSelection);
             break;
         case 'rock':
-            resultDiv.textContent = "Rock";
+            playRound("rock", computerSelection);
             break;
     }
+
+    resultDiv.textContent = (((humanScore > computerScore) ? "You won!" : (humanScore < computerScore) ? "You lost!" : "Draw!").concat(" " + humanScore + ":" + computerScore));
 });
 
 const container = document.querySelector("body");
