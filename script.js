@@ -66,11 +66,33 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
-    for (i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
+// function playGame() {
+//     for (i = 0; i < 5; i++) {
+//         const humanSelection = getHumanChoice();
+//         const computerSelection = getComputerChoice();
+//         playRound(humanSelection, computerSelection);
+//     }
+//     console.log(((humanScore > computerScore)? "You won!": (humanScore < computerScore)? "You lost!" : "Draw!").concat(" " + humanScore + ":" + computerScore))
+// }
+
+let menu = document.querySelector('#menu');
+
+menu.addEventListener('click', (event) => {
+    let target = event.target;
+
+    switch(target.id) {
+        case 'scissors':
+            resultDiv.textContent = "Scissors";
+            break;
+        case 'paper':
+            resultDiv.textContent = "Paper";
+            break;
+        case 'rock':
+            resultDiv.textContent = "Rock";
+            break;
     }
-    console.log(((humanScore > computerScore)? "You won!": (humanScore < computerScore)? "You lost!" : "Draw!").concat(" " + humanScore + ":" + computerScore))
-}
+});
+
+const container = document.querySelector("body");
+const resultDiv = document.createElement("div");
+container.appendChild(resultDiv);
