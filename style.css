@@ -48,3 +48,8 @@ button:active {
     font-weight: 700;
     color: white;
 }
+
+.result.finish {
+    margin-top: 24px;
+    font-size: 64px;
+}

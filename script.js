@@ -79,17 +79,32 @@ menu.addEventListener('click', (event) => {
             playRound("rock", computerSelection);
             break;
     }
-    if (plays++ < 4)
-        resultDiv.textContent = (humanScore + ":" + computerScore);
+    if (plays++ < 4) {
+        humanDiv.textContent = ("Human: " + humanScore);
+        computerDiv.textContent = ("Computer: " + computerScore);
+        humanDiv.style.display = 'block';
+        computerDiv.style.display = 'block';
+        resultDiv.style.display = 'none';
+    }
     else {
         resultDiv.textContent = (((humanScore > computerScore) ? "You won!" : (humanScore < computerScore) ? "You lost!" : "Draw!").concat(" " + humanScore + ":" + computerScore));
         plays = 0;
         humanScore = 0;
         computerScore = 0;
+        humanDiv.style.display = 'none';
+        computerDiv.style.display = 'none';
+        resultDiv.style.display = 'block';
     }
 });
 
 const container = document.querySelector("body");
 const resultDiv = document.createElement("div");
+const humanDiv = document.createElement("div");
+const computerDiv = document.createElement("div");
+humanDiv.classList.add("result");
+computerDiv.classList.add("result");
 resultDiv.classList.add("result");
+resultDiv.classList.add("finish");
+container.appendChild(humanDiv);
+container.appendChild(computerDiv);
 container.appendChild(resultDiv);
