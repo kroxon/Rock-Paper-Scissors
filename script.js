@@ -91,4 +91,5 @@ menu.addEventListener('click', (event) => {
 
 const container = document.querySelector("body");
 const resultDiv = document.createElement("div");
+resultDiv.classList.add("result");
 container.appendChild(resultDiv);
